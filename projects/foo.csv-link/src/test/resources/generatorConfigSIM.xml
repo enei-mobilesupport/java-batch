@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+
+  <context id="SIM" targetRuntime="MyBatis3">
+
+    <!-- DB connection. nullCatalogMeansCurrent is for Key bean. -->
+    <jdbcConnection
+      driverClass="com.mysql.jdbc.Driver"
+      connectionURL="jdbc:mysql://192.168.9.9:3306/sample"
+      userId="mysql"
+      password="mysql">
+      <property name="nullCatalogMeansCurrent" value="true" />
+    </jdbcConnection>
+
+    <!-- output1: Entity(bean) -->
+    <javaModelGenerator
+      targetPackage="foo.sample.db.auto.model"
+      targetProject="sample.csv-link/src/main/java">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+    <!-- output2: SQL(xml) -->
+    <sqlMapGenerator
+      targetPackage="foo.sample.db.auto.crud"
+      targetProject="sample.csv-link/src/main/resources">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </sqlMapGenerator>
+
+    <!-- output3: Mapper(interface) -->
+    <javaClientGenerator
+      targetPackage="foo.sample.db.auto.crud"
+      targetProject="sample.csv-link/src/main/java" type="XMLMAPPER">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaClientGenerator>
+
+    <!-- table -->
+    <table schema="sample" tableName="CAMPAIGN_MASTER"
+      enableInsert="false"
+      enableUpdateByPrimaryKey="false"
+      enableUpdateByExample="false"
+      enableDeleteByPrimaryKey="false"
+      enableDeleteByExample="false" />
+    <table schema="sample" tableName="SERVICE_PROVISIONING"
+      enableUpdateByPrimaryKey="false"
+      enableUpdateByExample="false"
+      enableDeleteByPrimaryKey="false"
+      enableDeleteByExample="false" /><!-- 自動採番のSEQNO取得を手動編集すること！ -->
+    <table schema="sample" tableName="CHARGE"
+      enableUpdateByPrimaryKey="false"
+      enableUpdateByExample="false"
+      enableDeleteByPrimaryKey="false"
+      enableDeleteByExample="false" />
+    <table schema="sample" tableName="USER_STATUS" />
+    <table schema="sample" tableName="PROVISIONING_LOG"
+      enableUpdateByPrimaryKey="false"
+      enableUpdateByExample="false"
+      enableDeleteByPrimaryKey="false"
+      enableDeleteByExample="false" />
+
+  </context>
+</generatorConfiguration>

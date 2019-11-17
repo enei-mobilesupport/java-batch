@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="foo.sample.db.custom.ref.crud.ProductMasterMapper">
+  <resultMap id="SmsProduct" type="foo.sample.db.custom.ref.model.SmsProduct">
+    <result column="商品名称" jdbcType="VARCHAR" property="productName" />
+    <result column="商品_C" jdbcType="VARCHAR" property="productCode" />
+  </resultMap>
+  <select id="findOne" resultMap="SmsProduct">
+SELECT s.商品_C, s.商品名称
+FROM IDPDB.商品マスタ s
+INNER JOIN IDPDB.商品区分マスタ sk
+ON s.商品区分_C = sk.商品区分_C
+WHERE sk.商品区分_C = #{code}
+   </select>
+</mapper>
