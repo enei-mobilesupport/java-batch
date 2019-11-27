@@ -72,9 +72,5 @@
         </plugins>
     </build>
 
-    <organization>
-    	<name>JDS</name>
-    	<url>http://www.jdserve.co.jp/</url>
-    </organization>
-    <name>sample</name>
+   <name>sample</name>
 </project>
